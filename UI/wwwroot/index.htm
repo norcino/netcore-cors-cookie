@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI</title>
+</head>
+<body>
+<script>
+    var sendRequest = function() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", "http://localhost:5001/api/values", true);
+        xmlHttp.withCredentials = true;
+        xmlHttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+            }
+        };
+        xmlHttp.send(null);
+    }
+</script>
+<button onclick="sendRequest()">Sent GET Request</button>
+</body>
+</html>
